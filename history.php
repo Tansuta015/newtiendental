@@ -257,29 +257,7 @@ if ($conn->connect_error) {
            echo '</select>';
            
             ?>
-                    <!-- <div class="form-group col-md-6">
-                    <label for="input"  >เวลาการรักษา :</label>
-                    <select id="input" name="Time" class="form-control">
-                    <option selected  >โปรดระบุเวลาการรักษา</option>
-                                <option value="" disabled >จันทร์-ศุกร์</option>
-                                <option value="17:00-17:45" >17:00-17:45</option>
-                                <option value="17:45-18:30" >17:45-18:30</option>
-                                <option value="18:30-19:15" >18:30-19:15</option>
-                                <option value="19:15-20:00" >19:15-20:00</option>
-                                <option value="" disabled >เสาร์-อาทิตย์</option>
-                                <option value="9:45-10:30" >9:00-9:45</option>
-                                <option value="9:45-10:30" >9:45-10:30</option>
-                                <option value="10:30-11:15" >10:30-11:15</option>
-                                <option value="11:15-12:00" >11:15-12:00</option>
-                                <option value="13:00-13:45" >13:00-13:45</option>
-                                <option value="13:45-14:30" >13:45-14:30</option>
-                                <option value="14:30-15:15" >14:30-15:15</option>
-                                <option value="15:15-16:00" >15:15-16:00</option>
-                                <option value="16:00-16:45" >16:00-16:45</option>
-                                <option value="16:45-17:30" >16:45-17:30</option>
-                               
-                    </select>
-                </div>  -->
+                  
               
                 </div>
 </div> 

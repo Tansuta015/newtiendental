@@ -143,7 +143,7 @@ if ($conn->connect_error) {
              <label >เลขสมาชิก :</label>
            <?php 
           
-          $Customernum = $_REQUEST["Customernum"];
+          $Customernum = $_SESSION['UserID'];
           $_SESSION['UserID'] = $Customernum;
           
           $sql = "SELECT Customernum FROM customer WHERE CusID = $Customernum";
