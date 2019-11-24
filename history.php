@@ -247,7 +247,7 @@ if ($conn->connect_error) {
                     $arr=$mon;
                 }
 
-               //$mix = array_diff($arr,$a);
+               
                
                foreach ($arr as $value) {
                     
