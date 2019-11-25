@@ -38,7 +38,7 @@ echo $add_min2;
 echo $addresult;
 //$add_min = date("H:i:s", strtotime($time . "+30 minutes"));
 // echo $add_min;
-$sql = "UPDATE book SET Time = '$addresult' WHERE BookID=$BookID ";
+$sql = "UPDATE book SET Time = '$addresult',alert = '1' WHERE BookID=$BookID ";
 
 
 if ($conn->query($sql) === TRUE) {

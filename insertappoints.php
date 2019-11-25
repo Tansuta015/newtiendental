@@ -15,8 +15,8 @@ if ($conn->connect_error) {
 } 
 
 $num = $_SESSION['UserID'];
-$start = $_POST["start"];
-$time = $_POST["time"];
+$start = $_SESSION['start'];
+$Time = $_POST["Time"];
 $type = $_POST["type"];
 $detail = $_POST["detail"];
 
@@ -30,9 +30,9 @@ echo $detail;
 // $date_for_database = date ("Y-m-d H:i:s", strtotime($date_old));
 // $start=date('Y-m-d');
 
-$sql = "INSERT INTO book (start,Time,Type,Detail,CusID)
+$sql = "INSERT INTO book (start,Time,Type,Detail,CusID,end)
 
-VALUES ('$start','$time','$type','$detail','$num')";
+VALUES ('$start','$Time','$type','$detail','$num','$start')";
 
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";

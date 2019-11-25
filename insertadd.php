@@ -18,20 +18,22 @@ $start = $_POST["start"];
 $Type = $_POST["Type"];
 $Detail = $_POST["Detail"];
 $Time = $_POST["Time"];
+$dayofweek = $_POST["dayofweek"];
 
 echo $mnumber;
 echo $start;
 echo $Type;
 echo $Detail;
 echo $Time;
+echo $dayofweek;
 
-$sql = "INSERT INTO book (CusID,start,Type,Detail,end,Time)
+$sql = "INSERT INTO book (CusID,start,Type,Detail,end,Time,dayofweek)
 
-VALUES ('$mnumber','$start','$Type','$Detail','$start','$Time')";
+VALUES ('$mnumber','$start','$Type','$Detail','$start','$Time','$dayofweek')";
 
 echo $sql;
 if ($conn->query($sql) === TRUE) {
-    header( "location: http://localhost/newdental/calendar.php?Customernum=".$mnumber );
+   header( "location: http://localhost/newdental/calendar.php?Customernum=".$mnumber );
 } else {
     // echo "Error updating record: " . $conn->error;
 }

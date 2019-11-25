@@ -173,8 +173,8 @@ if ($conn->connect_error) {
                  <?php
                  $start = $_POST["start"];
                  $dayofweek = date('w', strtotime($start));
-               // echo $dayofweek;
-                
+               //echo $dayofweek;
+               echo "<input type='hidden' name='dayofweek'  value='$dayofweek'>";
                 $sql = "SELECT Time FROM book WHERE start='$start'";
                 //$time = $row["Time"];
                 //echo $sql;
@@ -205,6 +205,7 @@ if ($conn->connect_error) {
                 
                  //print_r ($arr);
                 //print_r(array_splice($arr,1,13,$row["Time"]));
+                
                 if($dayofweek ==  0 ||$dayofweek == 6){
                     echo '<label for="input"  >เวลาการรักษา :</label>
                     <select id="input" name="Time"  class="form-control">
@@ -219,7 +220,7 @@ if ($conn->connect_error) {
                     <option value="" disabled >จันทร์-ศุกร์</option>';
                     $arr=$mon;
                 }
-
+               
                $mix = array_diff($arr,$a);
 
                 // if (($key = array_search($a, $arr)) !== false) {

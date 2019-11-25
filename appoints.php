@@ -116,7 +116,7 @@ if ($conn->connect_error) {
                 <label for="input"> เวลา :</label>
                 <input id="timepicker" name="time" width="555" />
                 </div> -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="input"  >เวลาการรักษา :</label>
                     <select id="input" name="time" class="form-control" required>
                     <option disabled  selected  >โปรดระบุเวลาการรักษา</option>
@@ -138,8 +138,62 @@ if ($conn->connect_error) {
                                 <option value="16:45-17:30" >16:45-17:30</option>
                                
                     </select>
-                </div>
-                            
+                </div> -->
+                <?php
+                 $start = $_SESSION['start'];
+                 $_SESSION['start'] = $start;
+                 $dayofweek = date('w', strtotime($start));
+                
+                 $sql = "SELECT Time FROM book WHERE start='$start'";
+                 $query = mysqli_query($conn,$sql);
+                 $a = array();
+
+                while($row = mysqli_fetch_array($query)){
+                    $Time = $row["Time"];  
+                   
+                    array_push($a, $Time);
+                   
+                 }
+                
+             
+                $mon = array("17:00-17:45","17:45-18:30","18:30-19:15","19:15-20:00");
+
+                $sat = array("09:00-09:45","09:45-10:30","10:30-11:15","11:15-12:00",
+                           "13:00-13:45","13:45-14:30","14:30-15:15","15:15-16:00",
+                           "16:00-16:45","16:45-17:30");
+                           
+                
+                 
+                if($dayofweek ==  0 ||$dayofweek == 6){
+                    echo '<div class="form-group ">
+                    <label for="input"  >เวลาการรักษา :</label>
+                    <select id="input" name="Time"  class="form-control">
+                    <option selected  >โปรดระบุเวลาการรักษา</option> 
+                    <option value="" disabled >เสาร์-อาทิตย์</option>';
+                    
+                    $arr=$sat;
+                }else{
+                    echo '<div class="form-group ">
+                    <label for="input"  >เวลาการรักษา :</label>
+                    <select id="input" name="Time"  class="form-control">
+                    <option selected  >โปรดระบุเวลาการรักษา</option> 
+                    <option value="" disabled >จันทร์-ศุกร์</option>';
+                    $arr=$mon;
+                }
+
+               
+               
+               foreach ($arr as $value) {
+                    
+                echo "<option value='$value'>$value</option>";
+                
+            }
+           echo '</select>';
+           
+            ?>
+                  
+              
+                </div>      
        <!-- ประเภทการรักษา -->
       
       <div class="form-group">
