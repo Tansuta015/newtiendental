@@ -69,8 +69,8 @@ if ($conn->connect_error) {
                         </li>
 
                         <!-- sidebar-menu  -->
-
-                        <!-- <li> <a href="/newdental/appoints.php">ใบนัด</a> </li> -->
+                        <li> <a href="/newdental/appoints.php">ใบนัด</a> </li>
+                        
                         <li> <a href="/newdental/history.php">ประวัติการรักษา</a> </li>
                         
                         <li> <a href="/newdental/home.php">ออกจากระบบ</a> </li>
