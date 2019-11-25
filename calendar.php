@@ -79,7 +79,7 @@ if ($conn->connect_error) {
 
                         <!-- sidebar-menu  -->
 
-                        <li> <a href="/newdental/appoints.php">ใบนัด</a> </li>
+                        <!-- <li> <a href="/newdental/appoints.php">ใบนัด</a> </li> -->
                         <li> <a href="/newdental/history.php">ประวัติการรักษา</a> </li>
                         
                         
@@ -143,7 +143,7 @@ if ($conn->connect_error) {
              <label >เลขสมาชิก :</label>
            <?php 
           
-          $Customernum = $_SESSION['UserID'];
+          $Customernum = $_REQUEST["Customernum"];
           $_SESSION['UserID'] = $Customernum;
           
           $sql = "SELECT Customernum FROM customer WHERE CusID = $Customernum";

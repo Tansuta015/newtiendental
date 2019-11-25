@@ -70,7 +70,7 @@ if ($conn->connect_error) {
 
                         <!-- sidebar-menu  -->
 
-                        <li> <a href="/newdental/appoints.php">ใบนัด</a> </li>
+                        <!-- <li> <a href="/newdental/appoints.php">ใบนัด</a> </li> -->
                         <li> <a href="/newdental/history.php">ประวัติการรักษา</a> </li>
                         
                         <li> <a href="/newdental/home.php">ออกจากระบบ</a> </li>
@@ -126,8 +126,8 @@ if ($conn->connect_error) {
                                 <option value="18:30-19:15" >18:30-19:15</option>
                                 <option value="19:15-20:00" >19:15-20:00</option>
                                 <option value="" disabled >เสาร์-อาทิตย์</option>
-                                <option value="9:45-10:30" >9:00-9:45</option>
-                                <option value="9:45-10:30" >9:45-10:30</option>
+                                <option value="09:00-09:45" >09:00-09:45</option>
+                                <option value="09:45-10:30" >09:45-10:30</option>
                                 <option value="10:30-11:15" >10:30-11:15</option>
                                 <option value="11:15-12:00" >11:15-12:00</option>
                                 <option value="13:00-13:45" >13:00-13:45</option>
@@ -163,8 +163,10 @@ if ($conn->connect_error) {
 
                 <!-- ปุม -->
                <div class="col text-center">
-              <button type="button"  class="btn btn-success btn-lg" role="button" >บันทึก</button>
-                <!-- <input type="submit  class="  btn-success btn-lg "  value="บันทึก" > -->
+              
+             <button type="button"   class="btn btn-success btn-lg" role="button" >บันทึก</button>
+              
+             <!-- <input type="submit  class="  btn-success btn-lg "  value="บันทึก" > -->
                 <!-- <input type="reset"   class="  btn-primary btn-lg "  value="รีเซ็ต" > -->
                 </div>
                
@@ -197,7 +199,7 @@ if ($conn->connect_error) {
 
 
 
-   $(document).ready(function(rowId){
+   $(document).ready(function (){
   $("form").submit(function(){
    
   });
@@ -214,6 +216,7 @@ if ($conn->connect_error) {
       dangerMode: true,
     }).then(function(isConfirm) {
       if (isConfirm) {
+
           //form.submit(); // <--- submit form programmatically
           $("form").submit();
          

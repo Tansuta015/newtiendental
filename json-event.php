@@ -108,20 +108,20 @@ if(isset($_POST['CusID'])){
 
 							  $output .=  '<option value="" disabled >เสาร์-อาทิตย์</option>';
 
-							  if(strcmp($get_data['Time'],"9:00-9:45") == 0){
-								$output .= '<option value="9:00-9:45" selected>9:00-9:45</option>';
+							  if(strcmp($get_data['Time'],"09:00-09:45") == 0){
+								$output .= '<option value="09:00-09:45" selected>09:00-09:45</option>';
 								
 							  }
 							  else{
-								$output .= '<option value="9:00-9:45">9:00-9:45</option>';
+								$output .= '<option value="09:00-09:45">09:00-09:45</option>';
 							  }
 
-							  if(strcmp($get_data['Time'],"9:45-10:30") == 0){
-								$output .= '<option value="9:45-10:30" selected>9:45-10:30</option>';
+							  if(strcmp($get_data['Time'],"09:45-10:30") == 0){
+								$output .= '<option value="09:45-10:30" selected>9:45-10:30</option>';
 								
 							  }
 							  else{
-								$output .= '<option value="9:45-10:30">9:45-10:30</option>';
+								$output .= '<option value="09:45-10:30">09:45-10:30</option>';
 							  }
 							  if(strcmp($get_data['Time'],"10:30-11:15") == 0){
 								$output .= '<option value="10:30-11:15" selected>10:30-11:15</option>';
@@ -198,10 +198,10 @@ if(isset($_POST['CusID'])){
 				</form>
 			</div>
 		  <div class="modal-footer">
-				<button type="button" class="btn btn-danger pull-left" onclick="return del_calendar('.$get_data['BookID'].');">Delete</button>
-				<button type="button" class="btn btn-primary" onclick="return edit_calendar();">Save changes</button>
-				<button type="button" class="btn btn-primary" onclick="return edit_calendar();">Done</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-danger pull-left" onclick="return del_calendar('.$get_data['BookID'].');">ยกเลิกการจอง</button>
+				<button type="button" class="btn btn-primary" onclick="return edit_calendar();">บันทึกการเปลี่ยนแปลง</button>
+				<button type="button" class="btn btn-primary" onclick="return edit_calendar();">เสร็จสิ้น</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
 		  </div>';
 	echo $output;
 }

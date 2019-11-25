@@ -28,6 +28,7 @@ if ($conn->connect_error) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    
     <style>
 				#calendar{
@@ -121,7 +122,7 @@ if ($conn->connect_error) {
 
                         <!-- sidebar-menu  -->
 
-                        <li> <a href="/newdental/appoints.php">ใบนัด</a> </li>
+                        <!-- <li> <a href="/newdental/appoints.php">ใบนัด</a> </li> -->
                         <li> <a href="/newdental/history.php">ประวัติการรักษา</a> </li>  
                         <li> <a href="/newdental/home.php">ออกจากระบบ</a> </li>
 
@@ -224,7 +225,7 @@ if ($conn->connect_error) {
              
                 $mon = array("17:00-17:45","17:45-18:30","18:30-19:15","19:15-20:00");
 
-                $sat = array("9:00-9:45","9:45-10:30","10:30-11:15","11:15-12:00",
+                $sat = array("09:00-09:45","09:45-10:30","10:30-11:15","11:15-12:00",
                            "13:00-13:45","13:45-14:30","14:30-15:15","15:15-16:00",
                            "16:00-16:45","16:45-17:30");
                            
@@ -281,8 +282,8 @@ if ($conn->connect_error) {
                 </div>
 <br>
                 <div class="col text-center">
-                <button type="submit"  class="btn btn-success btn-lg" role="button" >บันทึก</button>
-                
+                <!-- <button type="submit"  class="btn btn-success btn-lg" role="button" >บันทึก</button> -->
+                <button type="button"   class="btn btn-success btn-lg" role="button" >บันทึก</button>
 
                 <!-- <input type="reset"   class="  btn-primary btn-lg "  value="รีเซ็ต" > -->
                 
@@ -319,15 +320,35 @@ $('#date').datetimepicker({ footer: true, modal: true });
                         // uiLibrary: 'bootstrap4'
                     });
                     
-                
+   $(document).ready(function (){
+  $("form").submit(function(){
+   
+  });
+  $("button").click(function(){
+  
+ swal({
+      title: "",
+      text: "ตรวจสอบข้อมูลให้ถูกต้อง ?",
+      icon: "warning",
+      buttons: [
+        'ยกเลิก',
+        'บันทึก'
+      ],
+      dangerMode: true,
+    }).then(function(isConfirm) {
+      if (isConfirm) {
+
+          //form.submit(); // <--- submit form programmatically
+          $("form").submit();
+         
+      } else {
+        swal("ยกเลิกการบันทึก !" , "กลับสู่หน้าแก้ไข", "error");
+      }
+    })
+  });  
+});   
                 </script>
 
-<script>
-  function okClick(rowId){
-   $('#exampleModal').modal('toggle')
-    console.log("ok");
-    window.location.href="inserthistory.php";
-  }
-  </script>
+
   </body>
 </html>

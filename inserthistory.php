@@ -18,7 +18,7 @@ $num = $_SESSION['UserID'];
 $type = $_POST["type"];
 $detail = $_POST["detail"];
 $start = $_SESSION['start'];
-$Time = $_SESSION["Time"];
+$Time = $_POST["Time"];
 $room = $_POST["room"];
 $phone = $_POST["phone"];
 

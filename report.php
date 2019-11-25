@@ -87,9 +87,10 @@ if(isset($_POST["txtKeyword"]))
                   <th>เลขสมาชิก</th>
                   <th>ชื่อ</th>
                   <th>นามสกุล</th>
+                  
+                  <th>เพศ</th>
+                  <th>อายุ</th>
                   <th>ประเภทการรักษา</th>
-                  <!-- <th>วันที่</th>
-                  <th>เวลา</th> -->
                   <th>รายละเอียด</th>
                   <th></th>
 
@@ -107,7 +108,7 @@ if(isset($_POST["txtKeyword"]))
                     // output data of each row
                     while($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
-                        echo "<td>" . $row["Customernum"]. "</td><td>" . $row["Fname"]. "</td><td>" . $row["Lname"]. "</td><td>". $row["Type"]. "</td>";
+                        echo "<td>" . $row["Customernum"]. "</td><td>" . $row["Fname"]. "</td><td>" . $row["Lname"]. "</td><td>". $row["Sex"]. "</td><td>". $row["Age"]. "</td><td>". $row["Type"]. "</td>";
                       
                        echo "<td><a href='reportdetail.php?Customernum=".$row["CusID"]."' class='btn btn-warning' role='button' aria-pressed='true'>รายละเอียด</a></td> ";
                        

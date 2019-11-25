@@ -30,7 +30,7 @@ echo $detail;
 // $date_for_database = date ("Y-m-d H:i:s", strtotime($date_old));
 // $start=date('Y-m-d');
 
-$sql = "INSERT INTO book (start,Time,Type,Detail,CusID
+$sql = "INSERT INTO book (start,Time,Type,Detail,CusID)
 
 VALUES ('$start','$time','$type','$detail','$num')";
 

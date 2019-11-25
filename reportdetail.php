@@ -55,7 +55,7 @@ if ($conn->connect_error) {
         <a class="nav-link" href="/newdental/movequeue.php">เลื่อนคิว</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/report.php">Report</a>
+        <a class="nav-link" href="/newdental/report.php">รายงานการเข้ารักษา</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/newdental/singin.php">สมัครสมาชิก</a>
