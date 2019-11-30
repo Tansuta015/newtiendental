@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -15,30 +15,27 @@ if ($conn->connect_error) {
 } 
 
 $num = $_SESSION['UserID'];
-$start = $_SESSION['start'];
+$start= $_POST['start'];
 $Time = $_POST["Time"];
 $type = $_POST["type"];
 $detail = $_POST["detail"];
+$dayofweek = $_POST["days"];
 
-echo $start;
-echo $time;
-echo $type;
-echo $detail;
 
 // $date_old = '23-5-2016 23:15:23'; 
 // //Date for database
 // $date_for_database = date ("Y-m-d H:i:s", strtotime($date_old));
 // $start=date('Y-m-d');
 
-$sql = "INSERT INTO book (start,Time,Type,Detail,CusID,end)
+$sql = "INSERT INTO book (start,Time,Type,Detail,CusID,end,dayofweek)
 
-VALUES ('$start','$Time','$type','$detail','$num','$start')";
+VALUES ('$start','$Time','$type','$detail','$num','$start','$dayofweek')";
 
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
-    header( "location: http://localhost/newdental/appoints.php?Customernum=".$mnumber );
+    header( "location: http://52.184.32.252/appoints.php?Customernum=".$mnumber );
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    //echo "Error: " . $sql . "<br>" . $conn->error;
 }   
 
 ?>

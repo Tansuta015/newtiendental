@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 
@@ -81,10 +81,10 @@ if ($conn->connect_error) {
   </head>
   <body>
   <nav class="navbar navbar-expand-md" style="background: #00bcd5; ">
-    <img src="img/tooth.png" href="/newdental/home.php" width="50" height="45">
+    <img src="img/tooth.png" href="/home.php" width="50" height="45">
 
     
-    <h2><a class="display-8" href="/newdental/home.php">TIEN DENTAL</a></h2>
+    <h2><a class="display-8" href="/home.php">TIEN DENTAL</a></h2>
 </nav>
       
       

@@ -1,8 +1,8 @@
 <?php
 session_start();
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -22,12 +22,6 @@ $Time = $_POST["Time"];
 $room = $_POST["room"];
 $phone = $_POST["phone"];
 
-echo $type;
-echo $detail;
-echo $start;
-echo $Time;
-echo $room;
-echo $phone;
 
 
 //$date = date('Y-d-m h:i:s', time()); 
@@ -37,7 +31,7 @@ $sql = "INSERT INTO history (Type,Detail,start,Time,Room,Phone,CusID)
 VALUES ('$type','$detail','$start','$Time','$room','$phone','$num')";
 
 if ($conn->query($sql) === TRUE) {
-    header( "location: http://localhost/newdental/history.php?Customernum=".$mnumber );
+    header( "location: http://52.184.32.252/history.php?Customernum=".$mnumber );
    // echo "New record created successfully";
 } else {
    // echo "Error: " . $sql . "<br>" . $conn->error;

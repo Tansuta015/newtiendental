@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -40,10 +40,10 @@ if ($conn->connect_error) {
   </head>
   <body>
   <nav class="navbar navbar-expand-md fixed-top" style="background: #00bcd5; ">
-    <img src="img/tooth.png" href="/newdental/home.php" width="50" height="45">
+    <img src="img/tooth.png" href="/home.php" width="50" height="45">
 
     
-    <h2><a class="display-8" href="/newdental/home.php">TIEN DENTAL</a></h2>
+    <h2><a class="display-8" href="/home.php">TIEN DENTAL</a></h2>
 </nav>
     <div id="wrapper" class="toggled">
         <!-- Sidebar -->
@@ -61,7 +61,7 @@ if ($conn->connect_error) {
                             <div class="sidebar-submenu">
                                 <ul>
                                 <li>
-                                        <a href="/newdental/calendar.php">จองคิว</a>
+                                        <a href="/calendar.php">จองคิว</a>
                                     </li>
                                     
                                 </ul>
@@ -69,11 +69,11 @@ if ($conn->connect_error) {
                         </li>
 
                         <!-- sidebar-menu  -->
-                        <li> <a href="/newdental/appoints.php">ใบนัด</a> </li>
+                        <li> <a href="/appoints.php">ใบนัด</a> </li>
                         
-                        <li> <a href="/newdental/history.php">ประวัติการรักษา</a> </li>
+                        <li> <a href="/history.php">ประวัติการรักษา</a> </li>
                         
-                        <li> <a href="/newdental/home.php">ออกจากระบบ</a> </li>
+                        <li> <a href="/home.php">ออกจากระบบ</a> </li>
 
                     </ul>
                 </div> <!-- /#sidebar-wrapper -->
@@ -108,19 +108,18 @@ if ($conn->connect_error) {
                 <!-- celendar -->
                 <div class="form-group col-md-3">
             <label for="input">วัน/เดือน/ปี :</label>
-                <input id="datepicker" name="start" width="555"  >
+                <input id="datepicker" name="start" onchange="fillterdate()" width="555"   >
+                
+               
                 </div>
                 <!-- time -->
                <br>
-               <!-- <div class="form-group">
-                <label for="input"> เวลา :</label>
-                <input id="timepicker" name="time" width="555" />
-                </div> -->
-                <!-- <div class="form-group">
+               <input type="hidden" id="custId" name="custId" >
+             <div class="form-group">
                     <label for="input"  >เวลาการรักษา :</label>
-                    <select id="input" name="time" class="form-control" required>
-                    <option disabled  selected  >โปรดระบุเวลาการรักษา</option>
-                                <option value="" disabled >จันทร์-ศุกร์</option>
+                    <select id="show" name="Time"  onchange="tttt()"class="form-control" required>
+                    <!-- <option disabled  selected  >โปรดระบุเวลาการรักษา</option> -->
+                                <!-- <option value="" disabled >จันทร์-ศุกร์</option>
                                 <option value="17:00-17:45" >17:00-17:45</option>
                                 <option value="17:45-18:30" >17:45-18:30</option>
                                 <option value="18:30-19:15" >18:30-19:15</option>
@@ -135,71 +134,17 @@ if ($conn->connect_error) {
                                 <option value="14:30-15:15" >14:30-15:15</option>
                                 <option value="15:15-16:00" >15:15-16:00</option>
                                 <option value="16:00-16:45" >16:00-16:45</option>
-                                <option value="16:45-17:30" >16:45-17:30</option>
+                                <option value="16:45-17:30" >16:45-17:30</option> -->
                                
                     </select>
-                </div> -->
-                <?php
-                 $start = $_SESSION['start'];
-                 $_SESSION['start'] = $start;
-                 $dayofweek = date('w', strtotime($start));
-                
-                 $sql = "SELECT Time FROM book WHERE start='$start'";
-                 $query = mysqli_query($conn,$sql);
-                 $a = array();
-
-                while($row = mysqli_fetch_array($query)){
-                    $Time = $row["Time"];  
-                   
-                    array_push($a, $Time);
-                   
-                 }
-                
-             
-                $mon = array("17:00-17:45","17:45-18:30","18:30-19:15","19:15-20:00");
-
-                $sat = array("09:00-09:45","09:45-10:30","10:30-11:15","11:15-12:00",
-                           "13:00-13:45","13:45-14:30","14:30-15:15","15:15-16:00",
-                           "16:00-16:45","16:45-17:30");
-                           
-                
-                 
-                if($dayofweek ==  0 ||$dayofweek == 6){
-                    echo '<div class="form-group ">
-                    <label for="input"  >เวลาการรักษา :</label>
-                    <select id="input" name="Time"  class="form-control">
-                    <option selected  >โปรดระบุเวลาการรักษา</option> 
-                    <option value="" disabled >เสาร์-อาทิตย์</option>';
-                    
-                    $arr=$sat;
-                }else{
-                    echo '<div class="form-group ">
-                    <label for="input"  >เวลาการรักษา :</label>
-                    <select id="input" name="Time"  class="form-control">
-                    <option selected  >โปรดระบุเวลาการรักษา</option> 
-                    <option value="" disabled >จันทร์-ศุกร์</option>';
-                    $arr=$mon;
-                }
+                </div>
 
                
-               
-               foreach ($arr as $value) {
-                    
-                echo "<option value='$value'>$value</option>";
-                
-            }
-           echo '</select>';
-           
-            ?>
-                  
-              
-                </div>      
        <!-- ประเภทการรักษา -->
-      
-      <div class="form-group">
+       <div class="form-group">
                     <label for="input"  >ประเภทการรักษา :</label>
-                    <select id="input" name="type"  class="form-control" required>
-                        <option disabled  selected  >โปรดระบุประเภทการรักษา</option>
+                    <select id="input" name="type"  class="form-control">
+                        <option selected  >โปรดระบุประเภทการรักษา</option>
                         <option >ทันตกรรมพื้นฐาน</option>
                         <option >ทันตกรรมเพื่อความงาม</option>
                         <option >ทันตกรรมโรคเหงือก</option>
@@ -208,6 +153,7 @@ if ($conn->connect_error) {
                         <option >ทันตกรรมอื่นๆ</option>
                     </select>
                 </div>
+     
 <!-- หมายเหตุ -->
         <div class="form-group">
         <label for="exampleFormControlTextarea1">หมายเหตุการรักษา :</label>
@@ -217,7 +163,9 @@ if ($conn->connect_error) {
 
                 <!-- ปุม -->
                <div class="col text-center">
-              
+
+               
+               <input id="prodId" name="days" type="hidden" >       
              <button type="button"   class="btn btn-success btn-lg" role="button" >บันทึก</button>
               
              <!-- <input type="submit  class="  btn-success btn-lg "  value="บันทึก" > -->
@@ -248,11 +196,97 @@ if ($conn->connect_error) {
                        format:'yyyy-mm-dd',
                        minDate: today,
                         // uiLibrary: 'bootstrap4'
+
+
                     });
-                  
+                   
+var forDeletion = [];
+var arrAfterDel = [];
+
+function fillterdate(){
+ 
+  
+  // arrAfterDel.pop();
+  // console.log(arrAfterDel,"HHHH");
+  var a = document.getElementById("datepicker").value;
+  //alert(a);
+  document.getElementById("show").innerHTML = ""
+  var d = new Date(a);
+  var day = d.getDay();
+  //alert(day);
+  console.log("date ::" + a);
+  console.log("day ::" + day);
+  var day = localStorage.setItem('day', day)
+  var day = localStorage.getItem("day")
+  
+  
+  var arrmon = ["17:00-17:45","17:45-18:30","18:30-19:15","19:15-20:00"];
+
+  var arrsat = ["09:00-09:45","09:45-10:30","10:30-11:15","11:15-12:00",
+          "13:00-13:45","13:45-14:30","14:30-15:15","15:15-16:00",
+          "16:00-16:45","16:45-17:30"];
+
+   
+  ////เสาร์-อาทิตย์
+         var day = localStorage.getItem("day")
 
 
+          if (day == "0" || day == "6") {
+          document.getElementById("show").innerHTML += "<option value='' disabled selected>โปรดระบุเวลาการรักษา</option>";
+          // console.log("เวลาที่ไม่ต้องแสดง :" + forDeletion);
+          console.log(arrsat);
+                                            
+          /// คำสั่งลบของเสาร์-อาทิตย์ arrimeSS
+          arrAfterDel = arrsat.filter(function (value, index, arr) {
+          if (!forDeletion.includes(value)) {
+          return value;
+          }
+          
+          }
+          
+        
+          )
+         
+         for (let n = 0; n < arrAfterDel.length; n++) {
+                                
+          document.getElementById("show").innerHTML += "<option value=" + arrAfterDel[n] + ">" + arrAfterDel[n] + "</option>";
+           }
+           
+          }else {
+          document.getElementById("show").innerHTML += "<option value='' disabled selected>โปรดระบุเวลาการรักษา</option>";
+           console.log("เวลาที่ไม่ต้องแสดง :" + forDeletion);
+          console.log(arrmon);
+                                            
 
+          ///คำสังลบของจันทร์-ศุกร์ arrimeMF
+          arrAfterDel = arrmon.filter(function (value, index, arr) {
+          if (!forDeletion.includes(value)) {
+          return value;
+
+          }
+
+          })
+           for (let n = 0; n < arrAfterDel.length; n++) {
+
+            document.getElementById("show").innerHTML += "<option value" + arrAfterDel[n] + ">" + arrAfterDel[n] + "</option>";
+                                             
+
+
+            }
+
+           }
+
+
+}
+
+function tttt(){
+  var dayss = localStorage.getItem("day")
+  // alert(rrrr)
+  document.getElementsByName('days')[0].value=dayss;
+}
+                 
+  
+   
    $(document).ready(function (){
   $("form").submit(function(){
    
@@ -280,6 +314,7 @@ if ($conn->connect_error) {
     })
   });  
 });
+
                 </script>
   
   </body>

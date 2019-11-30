@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -33,10 +33,10 @@ if ($conn->connect_error) {
   </head>
   <body>
   <nav class="navbar navbar-expand-md" style="background: #00bcd5; ">
-    <img src="img/tooth.png" href="/newdental/home.php" width="50" height="45">
+    <img src="img/tooth.png" href="/home.php" width="50" height="45">
 
     
-    <h2><a class="display-8" href="/newdental/home.php">TIEN DENTAL</a></h2>
+    <h2><a class="display-8" href="/home.php">TIEN DENTAL</a></h2>
 </nav>
     <div id="wrapper" class="toggled">
         <!-- Sidebar -->
@@ -54,7 +54,7 @@ if ($conn->connect_error) {
                             <div class="sidebar-submenu">
                                 <ul>
                                 <li>
-                                        <a href="/newdental/calendar.php">จองคิว</a>
+                                        <a href="/calendar.php">จองคิว</a>
                                     </li>
                                    
                                 </ul>
@@ -63,11 +63,11 @@ if ($conn->connect_error) {
 
                         <!-- sidebar-menu  -->
 
-                        <li> <a href="/newdental/appoints.php">ใบนัด</a> </li>
-                        <li> <a href="/newdental/history.php">ประวัติการรักษา</a> </li>
+                        <li> <a href="/appoints.php">ใบนัด</a> </li>
+                        <li> <a href="/history.php">ประวัติการรักษา</a> </li>
                       
                         
-                        <li> <a href="/newdental/home.php">ออกจากระบบ</a> </li>
+                        <li> <a href="/home.php">ออกจากระบบ</a> </li>
 
                     </ul>
                 </div> <!-- /#sidebar-wrapper -->

@@ -1,8 +1,8 @@
 <?php
 session_start();
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -47,28 +47,28 @@ if(isset($_POST["txtKeyword"]))
   </head>
   <body>
   <nav class="navbar navbar-expand-md fixed-top" style="background: #00bcd5; ">
-    <img src="img/tooth.png" href="/newdental/home.php" width="50" height="45">
+    <img src="img/tooth.png" href="/home.php" width="50" height="45">
 
    
-    <h2><a class="display-8" href="/newdental/home.php">TIEN DENTAL</a></h2>
+    <h2><a class="display-8" href="/home.php">TIEN DENTAL</a></h2>
 
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar"></div>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/search.php">เข้าสู่ระบบ</a>
+        <a class="nav-link" href="/search.php">เข้าสู่ระบบ</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/movequeue.php">เลื่อนคิว</a>
+        <a class="nav-link" href="/movequeue.php">เลื่อนคิว</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/report.php">Report</a>
+        <a class="nav-link" href="/report.php">รายงานการเข้ารักษา</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/singin.php">สมัครสมาชิก</a>
+        <a class="nav-link" href="/singin.php">สมัครสมาชิก</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/admincalendar.php">ปฏิทิน</a>
+        <a class="nav-link" href="/admincalendar.php">ปฏิทิน</a>
       </li>
     </ul>
     </nav>
@@ -102,11 +102,12 @@ if(isset($_POST["txtKeyword"]))
             $sql = "SELECT *  FROM book INNER JOIN customer 
             ON  book.CusID = customer.CusID
             where Status ='0'  AND Fname LIKE '%".$strKeyword."%' group by customer.CusID";
-            
-           $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = mysqli_fetch_array($result)) {
+             $result = $conn->query($sql);
+             
+             if ($result->num_rows > 0){
+               
+                 // output data of each row
+                 while($row = mysqli_fetch_array($result)) {
                         echo "<tr>";
                         echo "<td>" . $row["Customernum"]. "</td><td>" . $row["Fname"]. "</td><td>" . $row["Lname"]. "</td><td>". $row["Sex"]. "</td><td>". $row["Age"]. "</td><td>". $row["Type"]. "</td>";
                       

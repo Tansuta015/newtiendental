@@ -20,31 +20,31 @@
   <body>
  
   <nav class="navbar navbar-expand-md" style="background: #00bcd5; ">
-    <img src="img/tooth.png" href="/newdental/home.php" width="50" height="45">
+    <img src="img/tooth.png" href="/home.php" width="50" height="45">
 
     
-    <h2><a class="display-8" href="/newdental/home.php">TIEN DENTAL</a></h2>
+    <h2><a class="display-8" href="/home.php">TIEN DENTAL</a></h2>
 
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar"></div>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/search.php">เข้าสู่ระบบ</a>
+        <a class="nav-link" href="/search.php">เข้าสู่ระบบ</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/movequeue.php">เลื่อนคิว</a>
+        <a class="nav-link" href="/movequeue.php">เลื่อนคิว</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/report.php">รายงานการเข้ารักษา</a>
+        <a class="nav-link" href="/report.php">รายงานการเข้ารักษา</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/singin.php">สมัครสมาชิก</a>
+        <a class="nav-link" href="/singin.php">สมัครสมาชิก</a>
       </li>
       <!-- <li class="nav-item">
-        <a class="nav-link" href="/newdental/alert.php">การแจ้งเตือน</a>
+        <a class="nav-link" href="/alert.php">การแจ้งเตือน</a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="/newdental/admincalendar.php">ปฏิทิน</a>
+        <a class="nav-link" href="/admincalendar.php">ปฏิทิน</a>
       </li>
     </ul>
 

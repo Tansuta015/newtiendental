@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -20,20 +20,15 @@ $Detail = $_POST["Detail"];
 $Time = $_POST["Time"];
 $dayofweek = $_POST["dayofweek"];
 
-echo $mnumber;
-echo $start;
-echo $Type;
-echo $Detail;
-echo $Time;
-echo $dayofweek;
+
 
 $sql = "INSERT INTO book (CusID,start,Type,Detail,end,Time,dayofweek)
 
 VALUES ('$mnumber','$start','$Type','$Detail','$start','$Time','$dayofweek')";
 
-echo $sql;
+
 if ($conn->query($sql) === TRUE) {
-   header( "location: http://localhost/newdental/calendar.php?Customernum=".$mnumber );
+   header( "location: http://52.184.32.252/calendar.php?Customernum=".$mnumber );
 } else {
     // echo "Error updating record: " . $conn->error;
 }

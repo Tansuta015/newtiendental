@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -23,11 +23,11 @@ $time = $_POST["time"];
 // $date = $_POST["datetimepicker"];
 
 
-echo $mnumber;
-echo $type;
-echo $detail;
-echo $date;
-echo $time;
+// echo $mnumber;
+// echo $type;
+// echo $detail;
+// echo $date;
+// echo $time;
 // echo $date;
 
 // $currentdate = date('Y-d-m h:i:s', time()); 
@@ -39,9 +39,9 @@ VALUES ('$mnumber','$type','$detail','$date','$time')";
 
 if ($conn->query($sql) === TRUE) {
     //echo "New record created successfully";
-    header( "location: http://localhost/newdental/history.php?Customernum=".$mnumber );
+    header( "location: http://52.184.32.252/history.php?Customernum=".$mnumber );
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    //echo "Error: " . $sql . "<br>" . $conn->error;
 }   
 
 ?>

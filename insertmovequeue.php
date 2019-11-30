@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 } 
 
 $BookID = $_REQUEST["BookID"];
-echo $BookID ;
+//echo $BookID ;
 $sql = "SELECT * FROM book WHERE BookID=$BookID";
 
 
@@ -33,19 +33,19 @@ $arr = (explode('-',$time));
 $add_min1 = date("H:i", strtotime($arr[0] . '+45 minutes'));
 $add_min2 = date("H:i", strtotime($arr[1] . '+45 minutes'));
 $addresult = $add_min1 . '-' . $add_min2;
-echo $add_min1;
-echo $add_min2;
-echo $addresult;
+// echo $add_min1;
+// echo $add_min2;
+// echo $addresult;
 //$add_min = date("H:i:s", strtotime($time . "+30 minutes"));
 // echo $add_min;
 $sql = "UPDATE book SET Time = '$addresult',alert = '1' WHERE BookID=$BookID ";
 
 
 if ($conn->query($sql) === TRUE) {
- header( "location: http://localhost/newdental/movequeue.php");
+ header( "location: http://52.184.32.252/movequeue.php");
  //echo "Record updated successfully";
  
 } else {
-     echo "Error updating record: " . $conn->error;
+     //echo "Error updating record: " . $conn->error;
 }
 ?>

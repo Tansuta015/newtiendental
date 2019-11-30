@@ -1,8 +1,8 @@
 <?php
 session_start(); 
-$servername = "localhost";
+$servername = "db";
 $username = "root";
-$password = "";
+$password = "test";
 $dbname = "tienden";
 
 // Create connection
@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 } 
 
 $mnumber  = $_SESSION['time'];
-echo $_SESSION['time'];
+//echo $_SESSION['time'];
 $name = $_POST["name"];
 $lastname = $_POST["lastname"];
 $sex = $_POST["sex"];
@@ -40,8 +40,8 @@ $sql = "INSERT INTO customer (Customernum,Fname, Lname,Sex, Age,IDcard,Phone,Add
 VALUES ('$mnumber','$name', '$lastname','$sex',$age,'$idcard','$phone','$address','$disease','$allergy')";
 
 if ($conn->query($sql) === TRUE) {
-    header( "location: http://localhost/newdental/singin.php");
-    echo "บันทึกข้อมูลเรียบร้อย";
+    header( "location: http://52.184.32.252/singin.php");
+   // echo "บันทึกข้อมูลเรียบร้อย";
 } else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
 

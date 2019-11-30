@@ -1,9 +1,9 @@
 <?php
 session_start(); 
 class Fullcalendar {
-    private $host = 'localhost'; //ชื่อ Host 
+    private $host = 'db'; //ชื่อ Host 
     private $user = 'root'; //ชื่อผู้ใช้งาน ฐานข้อมูล
-    private $password = ''; // password สำหรับเข้าจัดการฐานข้อมูล
+    private $password = 'test'; // password สำหรับเข้าจัดการฐานข้อมูล
     private $database = 'tienden'; //ชื่อ ฐานข้อมูล
 
  //function เชื่อมต่อฐานข้อมูล
